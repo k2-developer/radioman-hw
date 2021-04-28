@@ -5,16 +5,15 @@ public class Radio {
     int numberChannelMax;
     int volumeLevelMin;
     int volumeLevelMax;
-    boolean radioOn;
-    boolean radioVolumeMax;
-    boolean radioVolumeMin;
+    int currentChannel;
+    int currentVolume;
 
     public int getNumberChannelMin() {
         return numberChannelMin;
     }
 
     public void setNumberChannelMin(int numberChannelMin) {
-        if (currentChannel = numberChannelMax) {
+        if (currentChannel == numberChannelMax) {
             this.numberChannelMin = numberChannelMin;
         }
     }
@@ -24,7 +23,7 @@ public class Radio {
     }
 
     public void setNumberChannelMax(int numberChannelMax) {
-        if (currentChannel = numberChannelMin) {
+        if (currentChannel == numberChannelMin) {
             this.numberChannelMax = numberChannelMax;
         }
     }
@@ -34,7 +33,7 @@ public class Radio {
     }
 
     public void setVolumeLevelMin(int volumeLevelMin) {
-        if (currentVolume = volumeLevelMax) {
+        if (currentVolume == volumeLevelMax) {
             this.volumeLevelMin = volumeLevelMin;
         }
     }
@@ -44,40 +43,15 @@ public class Radio {
     }
 
     public void setVolumeLevelMax(int volumeLevelMax) {
-        if (currentVolume = volumeLevelMin) {
+        if (currentVolume == volumeLevelMin) {
             this.volumeLevelMax = volumeLevelMax;
         }
-    }
-
-    public boolean isRadioVolumeMax() {
-        return radioVolumeMax;
-    }
-
-    public void setRadioVolumeMax(boolean radioVolumeMax) {
-        if (currentVolume < volumeLevelMin) {
-            return;
-            this.volumeLevelMax = volumeLevelMax;
-        }
-    }
-
-    public boolean isRadioVolumeMin() {
-        return radioVolumeMin;
-    }
-
-    public void setRadioVolumeMin(boolean radioVolumeMin) {
-        if (currentVolume > volumeLevelMax) {
-            return;
-            this.volumeLevelMin = volumeLevelMin;
-        }
-    }
-
-    public boolean isRadioOn() {
-        // true - radio on ; false - radio off
-        if (currentRadioStatus = false) {
-            return
-        }
-
     }
 
 }
+
+
+
+
+
 
