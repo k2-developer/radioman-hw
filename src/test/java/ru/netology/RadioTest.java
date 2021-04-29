@@ -5,58 +5,68 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-    public int currentChannel;
-    int numberChannelMin = 0;
-    int numberChannelMax = 9;
-    int volumeLevelMin = 0;
-    int volumeLevelMax = 10;
+    public Radio radio = new Radio(9,10);
 
-    @Test
-    void getNumberChannelMin() {
-        Radio radio1 = new Radio();
-        int expected = 0;
-        currentChannel = radio1.getNumberChannelMin();
-        assertEquals(expected,currentChannel);
-    }
-
-    @Test
-    void setNumberChannelMin() {
-        Radio radio11 = new Radio();
-        currentChannel = radio11.getNumberChannelMin();
-        int expected = 0;
-        assertEquals(expected,currentChannel);
-
-    }
 
     @Test
     void getNumberChannelMax() {
-        Radio radio2 = new Radio();
-        int expected = 9;
-        currentChannel = radio2.getNumberChannelMax();
-        assertEquals(expected,currentChannel);
-    }
-
-    @Test
-    void setNumberChannelMax() {
-        Radio radio22 = new Radio();
-        int currentChannel = 0;
-        int expected = 9;
-        assertEquals(expected,currentChannel);
-    }
-
-    @Test
-    void getVolumeLevelMin() {
-    }
-
-    @Test
-    void setVolumeLevelMin() {
+    assertEquals(9,radio.getNumberChannelMax());
     }
 
     @Test
     void getVolumeLevelMax() {
+        assertEquals(10,radio.getVolumeLevelMax());
     }
 
     @Test
-    void setVolumeLevelMax() {
+    void switchChannelUp() {
+        radio.switchChannelUp(5);
+        assertEquals(6,radio.currentChannel);
     }
-}
+
+    @Test
+    void switchChannelDown() {
+        radio.switchChannelDown(5);
+        assertEquals(4,radio.currentChannel);
+
+    }
+
+    @Test
+    void switchVolumeUp() {
+        radio.switchVolumeUp(5);
+        assertEquals(6,radio.currentVolume);
+    }
+
+    @Test
+    void switchVolumeDown() {
+        radio.switchVolumeDown(5);
+        assertEquals(4,radio.currentVolume);
+    }
+
+    @Test
+    void switchChannelFromMaxToMix() {
+        radio.switchChannelUp(9);
+        assertEquals(0,radio.currentChannel);
+    }
+
+    @Test
+    void switchChannelFromMinToMax() {
+        radio.switchChannelDown(0);
+        assertEquals(9,radio.currentChannel);
+    }
+
+    @Test
+    void switchVolumeFromMinToMax() {
+        radio.switchVolumeDown(0);
+        assertEquals(10,radio.currentVolume);
+    }
+
+    @Test
+    void switchVolumeFromMaxToMin() {
+        radio.switchVolumeUp(10);
+        assertEquals(0,radio.currentVolume);
+    }
+
+
+
+    }
