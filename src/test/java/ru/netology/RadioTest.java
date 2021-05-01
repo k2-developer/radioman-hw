@@ -1,5 +1,6 @@
 package ru.netology;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -58,15 +59,39 @@ class RadioTest {
     @Test
     void switchVolumeFromMinToMax() {
         radio.switchVolumeDown(0);
-        assertEquals(10,radio.currentVolume);
+        assertEquals(0,radio.currentVolume);
     }
 
     @Test
     void switchVolumeFromMaxToMin() {
         radio.switchVolumeUp(10);
+        assertEquals(10,radio.currentVolume);
+    }
+
+    @Test
+    void branchesChannelMax() {
+        radio.setCurrentChannel(10);
+        assertEquals(0,radio.currentChannel);
+    }
+
+    @Test
+    void branchesChannelMin() {
+        radio.setCurrentChannel(-1);
+        radio.switchChannelDown(-1);
+        assertEquals(9,radio.currentChannel);
+    }
+
+    @Test
+    void branchesVolumeMin() {
+        radio.setCurrentVolume(-2);
         assertEquals(0,radio.currentVolume);
     }
 
+    @Test
+    void branchesVolumeMax() {
+        radio.setCurrentVolume(-2);
+        assertEquals(0,radio.currentVolume);
+    }
 
 
     }

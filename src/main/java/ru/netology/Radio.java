@@ -88,14 +88,14 @@ public class Radio {
     }
     public void switchVolumeUp(int currentVolume){
         if (currentVolume >= volumeLevelMax){
-            setCurrentVolume(numberChannelMin);
+            setCurrentVolume(volumeLevelMax);
         } else {
             setCurrentVolume(currentVolume+1);
         }
     }
     public void switchVolumeDown(int currentVolume){
         if (currentVolume <= volumeLevelMin){
-            setCurrentVolume(volumeLevelMax);
+            setCurrentVolume(volumeLevelMin);
         } else {
             setCurrentVolume(currentVolume-1);
         }
