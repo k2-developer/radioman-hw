@@ -72,28 +72,28 @@ public class Radio {
         this.currentVolume = currentVolume;
     }
 
-    public void switchChannelUp(int currentChannel){
+    public void switchChannelUp(){
         if (currentChannel >= numberChannelMax){
             setCurrentChannel(numberChannelMin);
         } else {
             setCurrentChannel(currentChannel+1);
         }
     }
-    public void switchChannelDown(int currentChannel){
+    public void switchChannelDown(){
         if (currentChannel <= numberChannelMin){
             setCurrentChannel(numberChannelMax);
         } else {
             setCurrentChannel(currentChannel-1);
         }
     }
-    public void switchVolumeUp(int currentVolume){
+    public void switchVolumeUp(){
         if (currentVolume >= volumeLevelMax){
             setCurrentVolume(volumeLevelMax);
         } else {
             setCurrentVolume(currentVolume+1);
         }
     }
-    public void switchVolumeDown(int currentVolume){
+    public void switchVolumeDown(){
         if (currentVolume <= volumeLevelMin){
             setCurrentVolume(volumeLevelMin);
         } else {

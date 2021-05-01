@@ -21,50 +21,56 @@ class RadioTest {
 
     @Test
     void switchChannelUp() {
-        radio.switchChannelUp(5);
+        radio.setCurrentChannel(5);
+        radio.switchChannelUp();
         assertEquals(6,radio.currentChannel);
     }
 
     @Test
     void switchChannelDown() {
-        radio.switchChannelDown(5);
+        radio.setCurrentChannel(5);
+        radio.switchChannelDown();
         assertEquals(4,radio.currentChannel);
 
     }
 
     @Test
     void switchVolumeUp() {
-        radio.switchVolumeUp(5);
+        radio.setCurrentVolume(5);
+        radio.switchVolumeUp();
         assertEquals(6,radio.currentVolume);
     }
 
     @Test
     void switchVolumeDown() {
-        radio.switchVolumeDown(5);
+        radio.setCurrentVolume(5);
+        radio.switchVolumeDown();
         assertEquals(4,radio.currentVolume);
     }
 
     @Test
     void switchChannelFromMaxToMix() {
-        radio.switchChannelUp(9);
+        radio.setCurrentChannel(9);
+        radio.switchChannelUp();
         assertEquals(0,radio.currentChannel);
     }
 
     @Test
     void switchChannelFromMinToMax() {
-        radio.switchChannelDown(0);
+        radio.switchChannelDown();
         assertEquals(9,radio.currentChannel);
     }
 
     @Test
     void switchVolumeFromMinToMax() {
-        radio.switchVolumeDown(0);
+        radio.switchVolumeDown();
         assertEquals(0,radio.currentVolume);
     }
 
     @Test
     void switchVolumeFromMaxToMin() {
-        radio.switchVolumeUp(10);
+        radio.setCurrentVolume(10);
+        radio.switchVolumeUp();
         assertEquals(10,radio.currentVolume);
     }
 
@@ -76,21 +82,23 @@ class RadioTest {
 
     @Test
     void branchesChannelMin() {
-        radio.setCurrentChannel(-1);
-        radio.switchChannelDown(-1);
+        radio.setCurrentChannel(-2);
+        radio.switchChannelDown();
         assertEquals(9,radio.currentChannel);
     }
 
     @Test
     void branchesVolumeMin() {
         radio.setCurrentVolume(-2);
+        radio.switchVolumeDown();
         assertEquals(0,radio.currentVolume);
     }
 
     @Test
     void branchesVolumeMax() {
-        radio.setCurrentVolume(-2);
-        assertEquals(0,radio.currentVolume);
+        radio.setCurrentVolume(10);
+        radio.switchVolumeUp();
+        assertEquals(10,radio.currentVolume);
     }
 
 
