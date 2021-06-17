@@ -9,7 +9,7 @@ public class Radio {
     int currentVolume;
 
     // Сделал конструктор,если потребуются дальнейшие действия с проектом
-    public Radio(int numberChannelMax,int volumeLevelMax) {
+    public Radio(int numberChannelMax, int volumeLevelMax) {
         this.numberChannelMax = numberChannelMax;
         this.volumeLevelMax = volumeLevelMax;
     }
@@ -53,9 +53,11 @@ public class Radio {
 
     public void setCurrentChannel(int currentChannel) {
         if (currentChannel > numberChannelMax) {
-            return; }
-        if (currentChannel < numberChannelMin){
-            return; }
+            return;
+        }
+        if (currentChannel < numberChannelMin) {
+            return;
+        }
         this.currentChannel = currentChannel;
     }
 
@@ -65,39 +67,44 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > volumeLevelMax){
-            return; }
-        if (currentVolume < volumeLevelMin){
-            return; }
+        if (currentVolume > volumeLevelMax) {
+            return;
+        }
+        if (currentVolume < volumeLevelMin) {
+            return;
+        }
         this.currentVolume = currentVolume;
     }
 
-    public void switchChannelUp(){
-        if (currentChannel >= numberChannelMax){
+    public void switchChannelUp() {
+        if (currentChannel >= numberChannelMax) {
             setCurrentChannel(numberChannelMin);
         } else {
-            setCurrentChannel(currentChannel+1);
+            setCurrentChannel(currentChannel + 1);
         }
     }
-    public void switchChannelDown(){
-        if (currentChannel <= numberChannelMin){
+
+    public void switchChannelDown() {
+        if (currentChannel <= numberChannelMin) {
             setCurrentChannel(numberChannelMax);
         } else {
-            setCurrentChannel(currentChannel-1);
+            setCurrentChannel(currentChannel - 1);
         }
     }
-    public void switchVolumeUp(){
-        if (currentVolume >= volumeLevelMax){
+
+    public void switchVolumeUp() {
+        if (currentVolume >= volumeLevelMax) {
             setCurrentVolume(volumeLevelMax);
         } else {
-            setCurrentVolume(currentVolume+1);
+            setCurrentVolume(currentVolume + 1);
         }
     }
-    public void switchVolumeDown(){
-        if (currentVolume <= volumeLevelMin){
+
+    public void switchVolumeDown() {
+        if (currentVolume <= volumeLevelMin) {
             setCurrentVolume(volumeLevelMin);
         } else {
-            setCurrentVolume(currentVolume-1);
+            setCurrentVolume(currentVolume - 1);
         }
     }
 
